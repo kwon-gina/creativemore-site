@@ -19,10 +19,10 @@ Render 정적 사이트로 배포하는 더씨앤엠 리뉴얼 홈페이지 저�
 3. Render 결제수단 등록 (트래픽 한도 초과 시 사이트 중지 방지, 아래 비용 항목)
 4. `https://creativemore-site.onrender.com` 에서 전체 화면 확인
 5. 문의 폼 연결 (아래 순서), 연결 후 저장소에 반영
-6. 도메인 연결 (아래 순서, DNS를 가비아로 이전)
+6. 도메인 연결 (아래 순서, 네임서버를 아임웹으로 되돌리기)
 7. Render › Settings › Custom Domains › Verify, SSL 인증서 자동 발급 확인
 8. 구글 서치 콘솔 · 네이버 서치어드바이저에 `https://www.creativemore.co.kr/sitemap.xml` 제출
-9. 기존 카페24 호스팅 해지는 새 사이트 접속 · 인증서 · 회사 메일 수신 · 문의 접수 확인 후 마지막에
+9. 기존 업체 유지보수 · 호스팅 해지는 새 사이트 접속 · 인증서 · 회사 메일 수신 · 문의 접수 확인 후 마지막에
 
 ## 문의 폼 연결 (Google Apps Script)
 
@@ -45,27 +45,29 @@ Render 정적 사이트로 배포하는 더씨앤엠 리뉴얼 홈페이지 저�
 * 발송 한도: 구글 워크스페이스 계정 하루 1,500건 (일반 Gmail 100건)
 * `모든 사용자` 항목이 안 보이면 구글 워크스페이스 관리 콘솔의 Apps Script 공유 제한 확인
 
-## 도메인 연결 (가비아 등록 · 현재 네임서버 카페24)
+## 도메인 연결 (아임웹 구매 · 현재 네임서버 카페24)
 
-* creativemore.co.kr: 가비아 등록 (등록인 권진아), 네임서버는 카페24 (옛 홈페이지 호스팅)
-* 권장: DNS를 가비아로 이전 (본인 가비아 계정으로 직접 관리, 카페24 호스팅 해지와 무관)
+* creativemore.co.kr: 2021년 아임웹에서 구매 (등록대행 가비아, 등록인 권진아), 도메인 연장 · 네임서버 관리는 아임웹 계정
+* 2025년 4월 네임서버를 카페24로 변경, 기존 유지보수 업체(드림위드) 카페24 계정에 연결돼 있어 레코드 수정은 업체만 가능
+* 권장: 아임웹에서 레코드 5개 등록 후 네임서버를 아임웹으로 되돌리기 (아임웹 채팅 상담으로도 요청 가능), 이후 업체 유지보수 해지
 
-1. 가비아 DNS 관리툴 [dns.gabia.com](https://dns.gabia.com) › creativemore.co.kr `설정` › 레코드 수정 › 아래 5개 입력 › 저장
-2. My가비아 › 서비스 관리 › creativemore.co.kr 관리툴 › 네임서버 › 가비아 네임서버 (ns.gabia.co.kr · ns1.gabia.co.kr · ns.gabia.net) › 소유자 인증 › 적용
+1. 아임웹 (도메인 구매 계정) 로그인 › 도메인 › creativemore.co.kr › 레코드 설정에 아래 5개 등록
+2. 네임서버를 카페24에서 아임웹 기본 네임서버로 변경
 3. 반영 대기 (보통 몇 시간, 최대 1~2일) › Render › Custom Domains › Verify
+4. 새 사이트 · 회사 메일 수신 확인 후 업체에 유지보수 해지 통보 (해지 희망일 30일 전 통보 조건)
 
 | 타입 | 호스트 | 값 | 비고 |
 |---|---|---|---|
 | A | `@` | `216.24.57.1` | Render |
-| CNAME | `www` | `creativemore-site.onrender.com` | Render 서비스 주소 그대로 |
+| CNAME | `www` | `creativemore-site.onrender.com` | Render 서비스 주소 |
 | MX | `@` | `SMTP.GOOGLE.COM` (우선순위 1) | 회사 메일, 필수 |
-| TXT | `@` | `google-site-verification=gjRePwpFrpBhv34qd2IuQrKZFdwUSBtXkficMk63L7E` | 서치 콘솔 |
+| TXT | `@` | `google-site-verification=gjRePwpFrpBhv34qd2IuQrKZFdwUSBtXkficMk63L7E` | 구글 워크스페이스 · 서치 콘솔 |
 | TXT | `@` | `v=spf1 include:_spf.google.com ~all` | 기존 SPF 2개 대체 |
 
 * AAAA 레코드 만들지 않기 (Render 권장)
-* 네임서버만 바꾸고 MX를 빠뜨리면 회사 메일 수신 중단, 5개 입력 · 저장 먼저
-* 카페24 기존 값 (참고): A `@` 183.110.224.225 · CNAME `*` creativemore.co.kr · MX SMTP.GOOGLE.COM · TXT 3 (서치 콘솔 · SPF 2)
-* 대안: 카페24 DNS 관리에서 직접 수정 (www CNAME 추가 가능, 루트 A 레코드는 카페24 고객센터 요청), 카페24 호스팅 해지 시 연결 전체가 사라질 수 있어 비권장
+* 순서 주의: 네임서버를 옮기기 전에 업체가 카페24 연결을 먼저 끊으면 사이트 · 회사 메일 모두 중단
+* 급하면 업체에 www CNAME · `@` A 두 값만 변경 요청 (MX · TXT 유지), 이 경우에도 해지 전 위 이전은 필요
+* 현재 카페24(업체) 값 (참고): A `@` 183.110.224.225 · CNAME `*` creativemore.co.kr · MX SMTP.GOOGLE.COM · TXT 3 (구글 인증 · SPF 2)
 
 ## 비용 · 트래픽
 
