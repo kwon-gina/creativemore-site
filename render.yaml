@@ -1,0 +1,126 @@
+# Render Blueprint: THE CNM company website (static site)
+services:
+  - type: web
+    runtime: static
+    name: creativemore-site
+    buildCommand: echo "static site, no build step"
+    staticPublishPath: ./site
+    autoDeployTrigger: commit
+    domains:
+      - www.creativemore.co.kr
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+    routes:
+      - type: redirect
+        source: /bbs/*
+        destination: /work/
+      - type: redirect
+        source: /data/*
+        destination: /work/
+      - type: redirect
+        source: /theme/CNM/img/The_CNM_2025.pdf
+        destination: /company-profile.pdf
+      - type: redirect
+        source: /theme/*
+        destination: /
+      - type: redirect
+        source: /index.php
+        destination: /
+      - type: redirect
+        source: /about
+        destination: /about/
+      - type: redirect
+        source: /atl
+        destination: /atl/
+      - type: redirect
+        source: /btl
+        destination: /btl/
+      - type: redirect
+        source: /contact
+        destination: /contact/
+      - type: redirect
+        source: /work
+        destination: /work/
+      - type: redirect
+        source: /work/agri-museum
+        destination: /work/agri-museum/
+      - type: redirect
+        source: /work/brand-editorial
+        destination: /work/brand-editorial/
+      - type: redirect
+        source: /work/cass-fan-base-camp
+        destination: /work/cass-fan-base-camp/
+      - type: redirect
+        source: /work/cass-stadium
+        destination: /work/cass-stadium/
+      - type: redirect
+        source: /work/dr-althea
+        destination: /work/dr-althea/
+      - type: redirect
+        source: /work/dragon-diffusion
+        destination: /work/dragon-diffusion/
+      - type: redirect
+        source: /work/flying77-into-nature
+        destination: /work/flying77-into-nature/
+      - type: redirect
+        source: /work/flying77
+        destination: /work/flying77/
+      - type: redirect
+        source: /work/goblinwear
+        destination: /work/goblinwear/
+      - type: redirect
+        source: /work/grey-days-run-hub
+        destination: /work/grey-days-run-hub/
+      - type: redirect
+        source: /work/kian84-seongsu
+        destination: /work/kian84-seongsu/
+      - type: redirect
+        source: /work/kian84-suwon
+        destination: /work/kian84-suwon/
+      - type: redirect
+        source: /work/live-commerce
+        destination: /work/live-commerce/
+      - type: redirect
+        source: /work/mellowbean
+        destination: /work/mellowbean/
+      - type: redirect
+        source: /work/nb-1080-run-hub
+        destination: /work/nb-1080-run-hub/
+      - type: redirect
+        source: /work/nb-204l
+        destination: /work/nb-204l/
+      - type: redirect
+        source: /work/nb-fuelcell-rebel-v5
+        destination: /work/nb-fuelcell-rebel-v5/
+      - type: redirect
+        source: /work/nb-kids-air-glossy
+        destination: /work/nb-kids-air-glossy/
+      - type: redirect
+        source: /work/nb-sc-rebel
+        destination: /work/nb-sc-rebel/
+      - type: redirect
+        source: /work/nexz-listening-party
+        destination: /work/nexz-listening-party/
+      - type: redirect
+        source: /work/onbrix-christmas-market
+        destination: /work/onbrix-christmas-market/
+      - type: redirect
+        source: /work/pulio-city
+        destination: /work/pulio-city/
+      - type: redirect
+        source: /work/skz-birthday-cafe
+        destination: /work/skz-birthday-cafe/
+      - type: redirect
+        source: /work/tnf-nuptse-ella
+        destination: /work/tnf-nuptse-ella/
+      - type: redirect
+        source: /work/uniqlo-sports-day
+        destination: /work/uniqlo-sports-day/
