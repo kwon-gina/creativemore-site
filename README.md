@@ -26,12 +26,13 @@ Render 정적 사이트로 배포하는 더씨앤엠 리뉴얼 홈페이지 저�
 
 ## 문의 폼 연결 (Google Apps Script)
 
-방문자 메일앱 없이 홈페이지에서 바로 접수, `thecnm@creativemore.co.kr` 로 항목별 정리 메일 발송
+방문자 메일앱 없이 홈페이지에서 바로 접수, `kwon@creativemore.co.kr` · `cha@creativemore.co.kr` 로 항목별 정리 메일 발송
 
 1. 회사 구글 계정으로 [script.google.com](https://script.google.com) 접속 › 새 프로젝트
 2. `contact-form/Code.gs` 내용 전체 붙여넣기 › 저장 (프로젝트 이름 예시 `더씨앤엠 홈페이지 문의`)
 3. 상단 함수 목록에서 `testSend` 선택 › 실행 › 권한 승인 (메일 발송 권한)
-4. 받은편지함에 `[홈페이지 문의] 더씨앤엠 · 테스트` 메일 도착 확인
+4. kwon@ · cha@ 받은편지함에 `[홈페이지 문의] 더씨앤엠 · 테스트` 메일 도착 확인
+   * '차단된 앱' 화면이 나오면: 관리 콘솔(admin.google.com) › 보안 › 액세스 및 데이터 관리 › API 관리 › 설정 › 내부 앱 › `내부 앱 신뢰` 체크 › 저장 후 다시 실행
 5. 배포 › 새 배포 › 유형 `웹 앱` › 실행 계정 `나` › 액세스 권한 `모든 사용자` › 배포
 6. 웹 앱 URL 복사 (`https://script.google.com/macros/s/…/exec` 형식)
 7. `site/contact/index.html` 의 `<meta name="cnm-form-endpoint" content="">` 따옴표 안에 URL 입력 › 저장소 반영

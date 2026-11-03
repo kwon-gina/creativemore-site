@@ -1,7 +1,7 @@
 /**
  * 더씨앤엠 홈페이지 문의 접수 (Google Apps Script 웹 앱)
  *
- * 흐름: 홈페이지 Contact 폼 → 이 웹 앱(doPost) → TO 주소로 정리된 메일 발송 (+ 선택: 구글 시트 기록)
+ * 흐름: 홈페이지 Contact 폼 → 이 웹 앱(doPost) → TO · CC 주소로 정리된 메일 발송 (+ 선택: 구글 시트 기록)
  * 방문자 메일앱 불필요, 회사 구글 계정에서 발송
  *
  * 설정
@@ -9,8 +9,8 @@
  * * CC          함께 받을 주소 (쉼표 구분, 없으면 '')
  * * SHEET_ID    접수 기록용 구글 시트 ID (없으면 '' 로 두면 기록 생략)
  */
-const TO = 'thecnm@creativemore.co.kr';
-const CC = '';
+const TO = 'kwon@creativemore.co.kr';
+const CC = 'cha@creativemore.co.kr';
 const SHEET_ID = '';
 const SENDER_NAME = '더씨앤엠 홈페이지';
 const TZ = 'Asia/Seoul';
