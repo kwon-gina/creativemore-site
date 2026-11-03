@@ -37,6 +37,7 @@ Render 정적 사이트로 배포하는 더씨앤엠 리뉴얼 홈페이지 저�
 6. 웹 앱 URL 복사 (`https://script.google.com/macros/s/…/exec` 형식)
 7. `site/contact/index.html` 의 `<meta name="cnm-form-endpoint" content="">` 따옴표 안에 URL 입력 › 저장소 반영
 
+* 연결 완료 (2026-11-03): kwon@ 계정 소유 프로젝트 '더씨앤엠 홈페이지 문의' 웹 앱 버전 3
 * URL 입력 전에는 전송 버튼 누르면 메일 주소 안내 문구 표시 (접수 누락 방지)
 * 받는 주소 변경 · 추가: `Code.gs` 상단 `TO` · `CC`
 * 접수 기록 시트: 구글 시트 생성 후 주소의 ID를 `SHEET_ID` 에 입력
