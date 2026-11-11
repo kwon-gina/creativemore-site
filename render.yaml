@@ -122,5 +122,8 @@ services:
         source: /work/tnf-nuptse-ella
         destination: /work/tnf-nuptse-ella/
       - type: redirect
+        source: /work/tnf-project-down
+        destination: /work/tnf-project-down/
+      - type: redirect
         source: /work/uniqlo-sports-day
         destination: /work/uniqlo-sports-day/

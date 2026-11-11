@@ -6,7 +6,7 @@ Render 정적 사이트로 배포하는 더씨앤엠 리뉴얼 홈페이지 저�
 
 * `site/` 배포 폴더 (Render `staticPublishPath`)
   * `index.html` 홈, `about/` `atl/` `btl/` `work/` `contact/` 메뉴 페이지
-  * `work/<프로젝트>/` 프로젝트 상세 25
+  * `work/<프로젝트>/` 프로젝트 상세 26
   * `assets/` 이미지 · 영상 · 폰트(Pretendard) · `dc-lite.js`(페이지 동작 스크립트)
   * `404.html` `robots.txt` `sitemap.xml` 파비콘 · `company-profile.pdf`(회사소개서)
 * `render.yaml` Render Blueprint 설정 (정적 사이트 · 도메인 · 캐시 헤더 · 기존 사이트 주소 리다이렉트)
